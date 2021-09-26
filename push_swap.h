@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 12:43:06 by cjang             #+#    #+#             */
-/*   Updated: 2021/08/25 13:14:37 by cjang            ###   ########.fr       */
+/*   Updated: 2021/09/26 21:29:24 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int			ft_issign(int c);
 void		free_book(char **book, size_t index);
 void		exit_message(char *s, int i);
 
-int			ft_isendl(char *s);
-int			tok_line(char *s, char **next);
+int			ft_ischar(char *s, char c);
+int			tok_line_back(char *s, char **next, char tok);
 
 void		sort_three(t_cd_list **lst_a, t_cd_list **lst_b, int loc);
 

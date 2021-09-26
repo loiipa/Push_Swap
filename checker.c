@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 10:56:12 by cjang             #+#    #+#             */
-/*   Updated: 2021/08/24 00:50:59 by cjang            ###   ########.fr       */
+/*   Updated: 2021/09/26 21:29:22 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	join_part(int *i, char *s, char **line_tmp)
 	int		check;
 	char	*line;
 
-	while (*i > 0 && ft_isendl(s) == 0)
+	while (*i > 0 && ft_ischar(s, '\n') == 0)
 	{
 		if (*line_tmp)
 		{
@@ -78,9 +78,9 @@ static int	checker(t_cd_list **lst_a, t_cd_list **lst_b, char **line_tmp)
 	while (i > 0)
 	{
 		join_part(&i, s, line_tmp);
-		if (ft_isendl(s) > 0)
+		if (ft_ischar(s, '\n') > 0)
 		{
-			tok_line(s, &line_tok);
+			tok_line_back(s, &line_tok, '\n');
 			order_part(s, line_tmp, lst_a, lst_b);
 			*line_tmp = line_tok;
 			check = read_part(&i, s, line_tmp);
