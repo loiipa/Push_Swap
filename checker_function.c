@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 23:49:31 by cjang             #+#    #+#             */
-/*   Updated: 2021/09/26 21:29:26 by cjang            ###   ########.fr       */
+/*   Updated: 2021/09/26 21:37:48 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	tok_line_back(char *s, char **next, char tok)
 	else if (ft_ischar(s, tok) == 0)
 		return (0);
 	len = ft_strlen(s);
-	if (len > 0 && s[len - 1] == '\n')
+	if (len > 0 && s[len - 1] == tok)
 	{
 		s[len - 1] = '\0';
 		*next = NULL;
