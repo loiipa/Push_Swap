@@ -1,0 +1,10 @@
+1. 자신의 push_swap파일에 넣어서 작동하면 됨
+
+2. 중지시에는 ctrl + c를 눌러서 종료시키기.
+
+3. 자동으로 난수를 발생시키지만 간혹 중복이 발생할 수 있음.
+
+4. 당신의 push_swap 폴더에서
+make시 push_swap,
+make bonus시 push_swap, ckecker
+가 생성된다는 가정하에 만들었음.
