@@ -6,7 +6,7 @@
 #    By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/30 15:21:51 by cjang             #+#    #+#              #
-#    Updated: 2021/08/25 14:16:01 by cjang            ###   ########.fr        #
+#    Updated: 2021/10/28 00:03:06 by cjang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,21 +33,21 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 NAME_PUSH_SWAP = push_swap
 NAME_CHECKER = checker
 
-all: $(NAME_PUSH_SWAP)
-	
+all: $(LIBFT) $(NAME_PUSH_SWAP)
+
+$(LIBFT): 
+	@make -C $(LIBFT)
+
 $(NAME_PUSH_SWAP): $(LIBFT_A) $(OBJS)
 	$(CC) $(CFLAGS) $(LIBFT_A) $(OBJS) -o $(NAME_PUSH_SWAP)
 
-$(LIBFT_A):
-	make -C $(LIBFT)
+$(NAME_CHECKER): $(LIBFT_A) $(OBJS_BONUS)
+	$(CC) $(CFLAGS) $(LIBFT_A) $(OBJS_BONUS) -o $(NAME_CHECKER)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-bonus: $(NAME_PUSH_SWAP) $(NAME_CHECKER)
-
-$(NAME_CHECKER): $(LIBFT_A) $(OBJS_BONUS)
-	$(CC) $(CFLAGS) $(LIBFT_A) $(OBJS_BONUS) -o $(NAME_CHECKER)
+bonus: all $(NAME_CHECKER)
 
 clean:
 	rm -f $(OBJS) $(OBJS_BONUS)
@@ -59,5 +59,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:
-	all bonus clean fclean re
+.PHONY: all bonus clean fclean re $(LIBFT)
